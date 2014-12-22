@@ -28,7 +28,7 @@ void spl_spi_load_image(void)
 	 */
 
 	flash = spi_flash_probe(CONFIG_SPL_SPI_BUS, CONFIG_SPL_SPI_CS,
-				CONFIG_SF_DEFAULT_SPEED, SPI_MODE_3);
+				CONFIG_SF_DEFAULT_SPEED, SPI_MODE_0);
 	if (!flash) {
 		puts("SPI probe failed.\n");
 		hang();

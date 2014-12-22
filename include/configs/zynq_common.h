@@ -15,7 +15,7 @@
 /* Default environment */
 #define CONFIG_IPADDR	10.10.70.102
 #define CONFIG_SERVERIP	10.10.70.101
-
+#define CONFIG_BOOTARGS "console=ttyPS0,115200 root=/dev/mmcblk0p2 rw  earlyprintk rootfstype=ext4 rootwait devtmpfs.mount=0"
 #define CONFIG_SYS_SDRAM_BASE	0
 #define CONFIG_SYS_SDRAM_SIZE	PHYS_SDRAM_1_SIZE
 
@@ -258,8 +258,7 @@
 			"echo Copying Linux from SD to RAM... && " \
 			"fatload mmc 0 0x3000000 ${kernel_image} && " \
 			"fatload mmc 0 0x2A00000 ${devicetree_image} && " \
-			"fatload mmc 0 0x2000000 ${ramdisk_image} && " \
-			"bootm 0x3000000 0x2000000 0x2A00000; " \
+			"bootm 0x3000000 - 0x2A00000; " \
 		"fi\0" \
 	"nandboot=echo Copying Linux from NAND flash to RAM... && " \
 		"nand read 0x3000000 0x100000 ${kernel_size} && " \
